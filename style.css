@@ -1,0 +1,341 @@
+/*===================================================== 
+                    CSS - Portfolio 
+=====================================================*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+* {
+    font-family: 'Montserrat', sans-serif; font-weight: 300;
+    padding: 0; margin: 0;
+    box-sizing: border-box;
+}
+
+:root { /*variables*/
+    --gallery-spacing: 5px;
+    --gallery-columns: 4;
+    --gallery-border: none;
+}
+
+
+/*===================================================== 
+                      navigation 
+=====================================================*/
+nav {
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    z-index: 9999;
+    background-color: rgba(41, 43, 44, 0.05);
+    transition: ease 1s;
+}nav * {
+    z-index: 9999;
+}
+nav .title a {
+    float: left;
+    padding-left: 20px;
+    text-decoration: none;
+    color: #ffffff;
+    transition: .4s ease;
+    font-size: 1.2rem;
+}
+nav ul {
+    list-style-type: none;
+    float: right;
+    padding-right: 20px;
+}
+nav li {
+    display: inline-block;
+    padding-left: 20px;
+    
+}
+nav li a {
+    /* click link --> more space*/
+    padding: 20px 0 20px 0;
+    text-decoration: none;
+    color: #ffffff;
+    transition: .4s ease;
+}
+nav .navHam {
+    color: #ffffff;
+    display: none;
+    float: right;
+}
+nav .navHam:hover {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+    /*mobile navigation*/
+    nav {
+        height: auto;
+        min-height: 60px;
+    }nav .title a {
+        float: none;
+    }nav ul{
+        float: none;
+        padding: 0;
+    } nav li {
+        display: block;
+        width: 100%;
+    }nav .navHam {
+        display: block;
+        padding-right: 40px;
+        padding-left: 40px;
+        float: right;
+    }nav .navItems {
+        display: none;
+    }
+
+}
+
+
+/*===================================================== 
+                        sections 
+=====================================================*/
+section {
+    min-height: 100vh;
+    padding: 10%;
+    padding-top: 120px;
+}
+section h1 {
+    padding-bottom: 10px;
+}
+
+/*===== splash screen =====*/
+section#splash {
+    padding: 0;
+    position: relative;
+    height: 100vh;
+    /* Apple, the Apple logo and iPhone are trademarks of Apple Inc., registered in the U.S. and other countries. */
+    background-image: linear-gradient(to bottom right, rgba(52, 152, 219, 0.7), rgba(155, 89, 182, 0.4)), url("img/splash.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+div.splashText {
+    position: relative;
+    font-size: 1.43rem;
+    padding-top: 40vh;
+    text-align: center;
+    color: #ffffff;
+    z-index: 0;
+}
+
+
+/*===== about me =====*/
+section#about {
+background-color: #ffffff;
+
+    /*tools*/
+}
+
+
+/*===== projects =====*/
+section#projects {
+    background-color: rgba(238, 238, 238, 0.4);
+}
+
+
+/*===== what I create / tools I use =====*/
+section#create {
+    background-color: #ffffff;
+}
+
+
+/*===== contact me =====*/
+section#contact {
+    background-color: rgba(238, 238, 238, 0.4);
+}
+form {
+    padding: 50px;
+    background-color:#ffffff;
+    border-radius: 7px;
+    box-shadow: 0 2px 4px 0 rgba(236, 236, 236, 0.16),0 2px 10px 0 rgba(126, 126, 126, 0.12)!important;
+}
+form input, form textarea {
+    transition: 1s ease;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: none;
+    border-radius: 4px;
+    background-color:#F5F7F6;
+}
+input[type="submit"] {
+    background-color: rgb(52, 152, 219);
+    color: #ffffff;
+    font-size: 15px;
+    padding: 12px;
+    background-image: linear-gradient(to bottom right, rgba(52, 152, 219, 0.7), rgba(155, 89, 182, 0.4));
+}
+
+
+@media screen and (max-width: 800px) {
+    input, textarea {
+        width: 100%;
+    }
+    form {
+        padding: 5%;
+    }
+}
+
+
+/*===================================================== 
+                        footer 
+=====================================================*/
+footer {
+    position: relative;
+}
+
+
+/*===================================================== 
+                     grid system 
+=====================================================*/
+.grid {
+    width: 100%;
+    overflow: auto;
+    zoom: 1;
+}
+.grid .col4 {
+    padding-top: 20px;
+    padding-right: 30px;
+    float: left;
+    width: 25%;
+}
+
+.grid .col3 {
+    padding-top: 20px;
+    padding-right: 30px;
+    float: left;
+    width: calc(100% / 3);
+}
+.grid .col2 {
+    padding-top: 20px;
+    padding-right: 30px;
+    float: left;
+    width: 50%;
+}
+
+@media screen and (max-width: 1000px) {
+    .grid .col3, .grid .col4 {
+        width: 50%;
+    }
+    .grid .col3:nth-child(3) {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 800px) {
+    .grid .col3, .grid .col2, .grid .col4 {
+        width: 100%;
+    }
+}
+
+
+/*===================================================== 
+                         gallery 
+=====================================================*/
+* {margin: 0; padding: 0; box-sizing: border-box;}
+div.gallery {width: 100%; margin: -5px;}
+div.gallery > div {
+    float: left;
+    position: relative;
+    width: calc((100% / var(--gallery-columns)) - (2 * var(--gallery-spacing)));
+    /* screen size of an ipad (73.83% - 100%) */  
+    padding-bottom: calc((73.8% / var(--gallery-columns)) - (2 * var(--gallery-spacing)));
+    margin: var(--gallery-spacing);
+    overflow: hidden;
+    border: var(--gallery-border);
+}div.gallery > div > img {
+    position: absolute;
+    height: 105%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+}div.gallery:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+div.gallery > div:hover .overlay {
+    opacity: 1;
+    cursor: pointer;
+}
+/*overlay*/
+div.gallery .overlay {
+    transition: 1s ease;
+    position: absolute;
+    background-color: rgba(41, 43, 44, 0.98);
+    color: #ffffff;
+    opacity: 0;
+    z-index: 1000;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+}
+div.gallery .overlay h3 {
+    text-align: center;
+    padding-top: 20px;
+}
+
+
+@media screen and (max-width: 1100px) {
+    :root {
+        --gallery-columns: 2;
+    }
+}@media screen and (max-width: 580px) {
+    :root {
+        --gallery-columns: 1;
+    }
+    div.gallery > div {
+        padding: 0;
+    }
+    div.gallery > div > img {
+        width: 100%;
+        margin-bottom: -4px;
+        top: 0;
+        left: 0;
+        position: relative;
+        -webkit-transform: none;
+                transform: none;
+    }
+}
+
+
+/*===================================================== 
+                animations by Codrops 
+=====================================================*/
+.animateNav a::before,
+.animateNav a::after {
+	display: inline-block;
+	opacity: 0;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+	-moz-transition: -moz-transform 0.3s, opacity 0.2s;
+	transition: transform 0.3s, opacity 0.2s;
+}
+
+.animateNav a::before {
+	margin-right: 10px;
+	content: '[';
+	-webkit-transform: translateX(20px);
+	-moz-transform: translateX(20px);
+	transform: translateX(20px);
+}
+
+.animateNav a::after {
+	margin-left: 10px;
+	content: ']';
+	-webkit-transform: translateX(-20px);
+	-moz-transform: translateX(-20px);
+	transform: translateX(-20px);
+}
+
+.animateNav a:hover::before,
+.animateNav a:hover::after,
+.animateNav a:focus::before,
+.animateNav a:focus::after,
+.animateNav a.active::before,
+.animateNav a.active::after
+{
+	opacity: 1;
+	-webkit-transform: translateX(0px);
+	-moz-transform: translateX(0px);
+	transform: translateX(0px);
+}
